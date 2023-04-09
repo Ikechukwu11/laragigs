@@ -90,10 +90,12 @@ class ListingFactory extends Factory
         $rand_keys = array_rand($tags, 3);
 
         //Create an array with the randomly selected tags enclosed in single quotes
-        $random_tags = array("'".$tags[$rand_keys[0]].",".$tags[$rand_keys[1]].",".$tags[$rand_keys[2]]."'");
+        //$random_tags = array("'".$tags[$rand_keys[0]].",".$tags[$rand_keys[1]].",".$tags[$rand_keys[2]]."'");
+        $random_tags = array($tags[$rand_keys[0]].",".$tags[$rand_keys[1]].",".$tags[$rand_keys[2]]);
 
         //Join the array elements into a single string with commas
-        $random_tags_str = strtolower(implode(", ", $random_tags));
+        //$random_tags_str = strtolower(implode(", ", $random_tags));
+         $random_tags_str = implode(", ", $random_tags);
         $random_desc_str = $desc[array_rand($desc)];
         $random_titles_str = $title[array_rand($title)];
         //return $random_tags;
