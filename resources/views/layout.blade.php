@@ -20,11 +20,14 @@
             .bg-laragigs {
                 background-color:#ef3b2d ;
             }
+            .navbar-brand {
+                margin: -1rem 0 0 -0.8rem;
+            }
 
-            input[type=search] {
+            input[type=search],.form-control {
                 border: 1px solid #f6f6f6;
             }
-            input[type=search]:focus {
+            input[type=search]:focus,.form-control:focus {
                 border-color: #f17269!important;
                 box-shadow: inset 0 0 0 1px #f17269!important;
             }
@@ -61,10 +64,10 @@
             <!-- Collapsible wrapper -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!-- Navbar brand -->
-              <a class="navbar-brand mt-2 mt-lg-0" href="/">
+              <a class="navbar-brand" href="/">
                 <img
                   src="/images/logo.png"
-                  height="50"
+                  height="70"
                   alt="MDB Logo"
                   loading="lazy"
                 />
@@ -145,10 +148,17 @@
     <footer class="text-center text-white bg-laragigs fixed-bottom mt-5">
         <!-- Grid container -->
         <div class="container p-4 ">
-            <!-- Copyright -->
-          <div class="text-center">
-            Copyright © {{date('Y')}}, All Rights Reserved
-          </div>
+            <div class="row align-items-center">
+                <div class="col-10 mb-2 mx-auto col-sm-9 col-md-9">
+                    <!-- Copyright -->
+                    <div class="text-center">Copyright © {{date('Y')}}, All Rights Reserved</div>
+                </div>
+
+                  <div class="col-9 mb-2 mx-auto col-sm-3 col-md-3">
+                    <!-- Copyright -->
+                    <div class="text-center"><a href="/listings/create" class="w-100 btn bg-black text-white">Post GiG</a></div>
+                </div>
+            </div>
         </div>
   <!-- Copyright -->
     </footer>

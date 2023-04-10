@@ -8,8 +8,7 @@
                      <small>
                         <p><a class="text-dark" href="/listings/{{$listing->id}}">{{$listing->title}}</a></p>
                         <p><span>{{$listing->company}}</span></p>
-                         <x-listing-tags :listingTags="$listing->tags" />
-                        <p class="d-none">{{$listing->description}}</p>
+                         <p><x-listing-tags :listingTags="$listing->tags" /></p>
                         <p><i class="fa-solid fa-location-dot me-3"></i>{{$listing->location}}</p>
                      </small>
                  </div>

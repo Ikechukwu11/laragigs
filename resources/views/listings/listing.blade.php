@@ -10,11 +10,11 @@
             <img src="/images/no-image.png" width="200" style="" class="img-fluid mx-auto">
             <h4>{{$listing['title']}}</h4>
             <h4><small>{{$listing['company']}}</small></h4>
-            <x-listing-tags :listingTags="$listing->tags" class="justify-content-center" />
+            <p><x-listing-tags :listingTags="$listing->tags" class="justify-content-center" /></p>
             <p><i class="fa-solid fa-location-dot me-3"></i>{{$listing->location}}</p>
             <hr>
             <h4>Job Description</h4>
-            <p>{{$listing->description}}</p>
+            <p class="text-start">{{$listing->description}}</p>
             <button class="btn w-100 mb-4 rounded-5 text-white bg-laragigs">
                 <i class="fa-solid fa-envelope me-3"></i> Contact Employer
             </button>
