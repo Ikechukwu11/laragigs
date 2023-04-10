@@ -18,6 +18,7 @@ Route::get('/', [ListingController::class,'showAll']);
 Route::get('/listings/create', [ListingController::class,  'create']);
 Route::post('/listings/', [ListingController::class,  'store']);
 Route::get('/listings/{listing}', [ListingController::class,  'show']);
+
 /*Route::get('/', function () {
     return view('listings',[
         'heading' => 'Latest Listings',
