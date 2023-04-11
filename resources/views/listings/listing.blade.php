@@ -7,8 +7,8 @@
     </div>
     <div class="col-12 mx-auto text-center">
         <x-card class="py-4 shadow">
-            <img src="/images/no-image.png" width="200" style="" class="img-fluid mx-auto">
-            <h4>{{$listing['title']}}</h4>
+            <img src={{$listing->logo ? asset('storage/'.$listing->logo) : asset('/images/no-image.png')}} width="200" style="" class="img-fluid mx-auto">
+            <h4>{{$listing->title}}</h4>
             <h4><small>{{$listing['company']}}</small></h4>
             <p><x-listing-tags :listingTags="$listing->tags" class="justify-content-center" /></p>
             <p><i class="fa-solid fa-location-dot me-3"></i>{{$listing->location}}</p>
