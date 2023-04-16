@@ -5,6 +5,7 @@
 @endsection
 @section('content')
 @include('partials._search')
+<x-flash-message class="my-3" />
 @unless(count($listings) == 0)
 @foreach($listings as $listing)
 <x-listing-card :listing="$listing" />

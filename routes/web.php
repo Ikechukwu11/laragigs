@@ -14,10 +14,18 @@ use \App\Models\Listing;
 |
 */
 
-Route::get('/', [ListingController::class,'showAll']);
-Route::get('/listings/create', [ListingController::class,  'create']);
-Route::post('/listings/', [ListingController::class,  'store']);
-Route::get('/listings/{listing}', [ListingController::class,  'show']);
+Route::get('/', [ListingController::class, 'showAll']);
+
+Route::get('/listings/create', [ListingController::class, 'create']);
+Route::post('/listings/', [ListingController::class, 'store']);
+
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+Route::put('/listings/{listing}', [ListingController::class, 'storeupdate']);
+
+Route::delete('/listings/{listing}', [ListingController::class, 'storedelete']);
+
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 /*Route::get('/', function () {
     return view('listings',[
