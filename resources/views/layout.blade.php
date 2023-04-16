@@ -49,6 +49,16 @@
     .page-item.active .page-link {
       background-color: #ef3b2d!important;
     }
+    .dropdown-toggle {
+    color: white;
+    background-color: #ef3b2d;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   </style>
 </head>
 <body class="antialiased">
@@ -81,27 +91,31 @@
             loading="lazy"
             />
         </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-none">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
-          </li>
-        </ul>
-        <!-- Left links -->
+
       </div>
       <!-- Collapsible wrapper -->
 
       <!-- Right elements -->
       <div class="d-flex align-items-center">
         @auth
+            <div class="d-none d-md-flex">
+                <button class="text-reset me-3 dropdown-item "> Hello {{ucwords(auth()->user()->name)}}</button>
+                 <span>
+                     <a class="dropdown-item" href="/listings/manage">
+                         <i class="fas  fa-cog"></i>Manage Listings
+                     </a>
+                 </span>
+                <form method="POST" class="d-flex" action="/logout" onsubmit="confirm('You are about to be logged out')">
+                  @csrf
+                  <button class="dropdown-item" type="submit">
+                      <i class="fas  fa-power-off a-arrow-right-to-bracket"></i>
+                      Logout
+                  </button>
+                </form>
+            </div>
+
         <!-- Avatar -->
-        <div class="dropdown">
+        <div class="dropdown d-md-none">
           <a
             class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
@@ -110,23 +124,11 @@
             data-mdb-toggle="dropdown"
             aria-expanded="false"
             >
-            <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle"
-            height="25"
-            alt="Black and White Portrait of a Man"
-            loading="lazy"
-            />
+            <i class="fas fa-{{strtolower(auth()->user()->name[0])}}"  style="color: #fff; font-size: 15px;"></i>
         </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuAvatar"
-          >
+        <ul class="dropdown-menu dropdown-menu-end">
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#"> <i class="fas  fa-cog"></i>Manage Listings</a>
+            <a class="dropdown-item" href="/listings/manage"> <i class="fas  fa-cog"></i>Manage Listings</a>
           </li>
           <li>
             <form method="POST" action="/logout">

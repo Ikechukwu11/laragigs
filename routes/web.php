@@ -3,7 +3,7 @@
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use \App\Models\Listing;
+//use \App\Models\Listing;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +25,8 @@ Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->midd
 Route::put('/listings/{listing}', [ListingController::class, 'storeupdate'])->middleware('auth');
 
 Route::delete('/listings/{listing}', [ListingController::class, 'storedelete'])->middleware('auth');
+
+Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 

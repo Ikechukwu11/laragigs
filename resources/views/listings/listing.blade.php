@@ -32,21 +32,25 @@
         <span class="d-none d-md-block">Visit Website</span>
       </button>
 
-      <a href="/listings/{{$listing->id}}/edit" class="w-100">
-        <button class="btn w-100 mb-4 rounded-5 text-white bg-primary d-flex justify-content-center align-items-center">
-          <i class="fa-solid fa-pen me-md-3"></i>
-          <span class="d-none d-md-block">Edit</span>
-        </button>
-      </a>
+        @auth
+            @if (auth()->id()===$listing->user_id)
+              <a href="/listings/{{$listing->id}}/edit" class="w-100">
+                <button class="btn w-100 mb-4 rounded-5 text-white bg-primary d-flex justify-content-center align-items-center">
+                  <i class="fa-solid fa-pen me-md-3"></i>
+                  <span class="d-none d-md-block">Edit</span>
+                </button>
+              </a>
 
-      <form method="POST" class="w-100" action="/listings/{{$listing->id}}">
-        @csrf
-        @method('DELETE')
-        <button class="btn w-100 mb-4 rounded-5 text-white bg-danger d-flex justify-content-center align-items-center">
-          <i class="fa-solid fa-trash me-md-3"></i>
-          <span class="d-none d-md-block">Delete</span>
-        </button>
-      </form>
+              <form method="POST" class="w-100" action="/listings/{{$listing->id}}">
+                @csrf
+                @method('DELETE')
+                <button class="btn w-100 mb-4 rounded-5 text-white bg-danger d-flex justify-content-center align-items-center">
+                  <i class="fa-solid fa-trash me-md-3"></i>
+                  <span class="d-none d-md-block">Delete</span>
+                </button>
+              </form>
+          @endif
+        @endauth
     </div>
 
   </x-card>

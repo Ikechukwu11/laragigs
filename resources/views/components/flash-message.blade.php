@@ -1,6 +1,6 @@
 @if(session()->has('success'))
     @props(['redirect'])
-<div class="toast align-items-center text-white mx-auto mb-4 bg-success border-0 show" role="alert">
+<div {{$attributes->merge(['class'=>'toast align-items-center text-white mx-auto mb-4 bg-success border-0 show'])}} role="alert">
   <div class="d-flex">
     <div class="toast-body">
         {{session('success')}}
