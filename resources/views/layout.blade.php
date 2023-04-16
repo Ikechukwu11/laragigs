@@ -20,6 +20,11 @@
     .bg-laragigs {
       background-color: #ef3b2d;
     }
+
+    .text-laragigs,a {
+      color: #ef3b2d;
+    }
+
     .navbar-brand {
       margin: -1rem 0 0 -0.8rem;
     }
@@ -94,17 +99,9 @@
 
       <!-- Right elements -->
       <div class="d-flex align-items-center">
-        <!-- Icon -->
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-user-plus"></i> Register
-        </a>
-
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-user"></i> Login
-        </a>
-
+        @auth
         <!-- Avatar -->
-        <div class="dropdown d-none">
+        <div class="dropdown">
           <a
             class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
@@ -129,13 +126,27 @@
             <a class="dropdown-item" href="#">My profile</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#"> <i class="fas  fa-cog"></i>Manage Listings</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Logout</a>
+            <form method="POST" action="/logout">
+              @csrf
+              <button class="dropdown-item" type="submit"> <i class="fas  fa-power-off a-arrow-right-to-bracket"></i> Logout</button>
+            </form>
           </li>
         </ul>
       </div>
+      @else
+      <!-- Icon -->
+      <a class="text-reset me-3" href="/register">
+        <i class="fas fa-user-plus"></i> Register
+      </a>
+
+      <a class="text-reset me-3" href="/login">
+        <i class="fas  fa-arrow-right-to-bracket"></i> Login
+      </a>
+      @endauth
+
     </div>
     <!-- Right elements -->
   </div>
